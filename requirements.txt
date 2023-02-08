@@ -1,0 +1,6 @@
+Flask==1.1.4
+Flask-Cors==3.0.10
+flask-restful
+decorator
+flask-swagger-ui
+markupsafe==2.0.1

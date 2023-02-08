@@ -1,0 +1,87 @@
+Problem 1 - Data Modeling
+
+Choose a database to use for this coding exercise (SQLite, Postgres, etc.). Design two data models: one to represent the weather data records, and one to represent the yield data records. If you use an ORM, your answer should be in the form of that ORM's data definition format. If you use pure SQL, your answer should be in the form of DDL statements.
+
+Created Tables for Weather_data and Yield
+
+path: src/sql/tables_ddl.sql
+
+COMMAND:
+
+CD src
+
+python build_tables.py
+---------------------------------------------------------------------------
+Problem 2 - Ingestion
+
+Write code to ingest the weather and yield data from the raw text files supplied into your database, using the models you designed. Check for duplicates: if your code is run twice, you should not end up with multiple rows with the same data in your database. Your code should also produce log output indicating start and end times and number of records ingested.
+
+
+
+Created Ingestion script for Weather_data and Yield
+
+path: code/
+
+COMMAND:
+
+CD code
+
+python insert_records.py
+---------------------------------------------------------------------------
+Problem 3 - Data Analysis
+
+For every year, for every weather station, calculate:
+
+* Average maximum temperature (in degrees Celsius)
+* Average minimum temperature (in degrees Celsius)
+* Total accumulated precipitation (in centimeters)
+
+Ignore missing data when calculating these statistics.
+
+Design a new data model to store the results. Use NULL for statistics that cannot be calculated.
+
+Your answer should include the new model definition as well as the code used to calculate the new values and store them in the database.
+
+
+
+Created Model and ingestion script for Stat data
+
+path: src/
+
+COMMAND:
+
+CD src
+
+python generate_matrics.py
+---------------------------------------------------------------------------
+Problem 4 - REST API
+
+Choose a web framework (e.g. Flask, Django REST Framework). Create a REST API with the following GET endpoints:
+
+/api/weather
+/api/weather/stats
+
+Each endpoint should return a JSON-formatted response with a representation of the ingested data in your database. Allow clients to filter the response by date and station ID (where present) using the query string. Data should be paginated.
+
+Your answer should include all files necessary to run your API locally, along with any unit tests.
+
+
+
+Created Flask App for weather, yield and stat data
+
+path: code/
+
+COMMAND:
+
+CD code
+
+python app.py
+
+Usage:
+
+Weather_data:
+http://127.0.0.1:5000/api/weather/?station=USC00110072
+
+
+Stats:
+http://127.0.0.1:5000/api/weather/stats/

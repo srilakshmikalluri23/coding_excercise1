@@ -1,0 +1,52 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "description": "web assessment",
+      "version": "1.0.0",
+      "title": "test-Laxmi",
+      "contact": {
+        "email": "Laxmi@gmail.com"
+      }
+    },
+    "servers": [
+        {
+          "url": "/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Swagger ",
+          "description": "Example API for requesting"
+        }
+      ],
+      "paths": {
+        "/api/weather": {
+          "get": {
+            "tags": [
+              "weather"
+            ],
+            "summary": "Returns weather",
+            "responses": {
+              "200": {
+                "description": "OK"
+                
+              }
+            }
+          }
+        },
+        "/api/weather/stats": {
+            "get": {
+              "tags": [
+                "weatherstats"
+              ],
+              "summary": "Returns weather stats",
+              "responses": {
+                "200": {
+                  "description": "OK"
+                  
+                }
+              }
+            }
+          }
+      }
+  }
